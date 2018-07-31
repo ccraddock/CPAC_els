@@ -1,0 +1,43 @@
+Anatomical Preprocessing \\
+
+
+\begin{table}[h]
+	\caption{Anatomical preprocessing pipeline.}
+    \begin{tabular}{l l}
+	    \hline
+	    Step & Method  \\
+	    \hline
+	    Deoblique & 3drefit \cite{Cox1996}  \\
+	    Re-orient to RPI & 3dresample \cite{Cox1996} \\
+	    Skull Strip & 3dSkullStrip \cite{Cox1996} \\
+	    Denormalize & 3dcalc \cite{Cox1996} \\
+	    Register to Template & FLIRT \cite{Jenkinson2002} + FNIRT \cite{Andersson2007} \\
+	    (nonlinear) & ANTS \cite{Avants2009}  \\
+	    Tissue Segmentation & FAST \cite{Zhang2001} \\ 
+	    \hline
+    \end{tabular}
+\end{table}
+
+
+Functional Preprocessing \\
+
+
+\begin{table}[h]
+    \caption{Functional preprocessing pipeline.}
+    \begin{tabular}{l l l}
+	    \hline
+	    Step & Software  & Function \\ \hline
+	    Drop Volumes & AFNI & 3dcalc \cite{Cox1996}\\
+	    Slice Timing Correction & AFNI & 3dTshift \cite{Cox1996} \\
+	    Deoblique & AFNI & 3drefit \cite{Cox1996} \\
+	    Re-orient to RPI & AFNI & 3dresample \cite{Cox1996} \\
+	    Volume Realignment & AFNI & 3dvolreg \cite{Cox1996} \\
+	    Remove Skull  & AFNI & 3dcalc \cite{Cox1996} \\
+	    Intensity Normalization & FSL & fslmaths  \\
+	    Register to Anatomical & FSL & FLIRT with or without BBR (linear) \cite{Jenkinson2002}\cite{Greve2009} \\
+	    Register to MNI & FSL & applywarp \cite{Andersson2007} \\
+	    & ANTS & WarpTimeSeriesImageMultiTransform \cite{Avants2009} \\ 
+	    \hline
+    \end{tabular}
+\end{table}
+

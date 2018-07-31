@@ -1,0 +1,249 @@
+%%
+%% Copyright 2007, 2008, 2009 Elsevier Ltd
+%%
+%% This file is part of the 'Elsarticle Bundle'.
+%% ---------------------------------------------
+%%
+%% It may be distributed under the conditions of the LaTeX Project Public
+%% License, either version 1.2 of this license or (at your option) any
+%% later version.  The latest version of this license is in
+%%    http://www.latex-project.org/lppl.txt
+%% and version 1.2 or later is part of all distributions of LaTeX
+%% version 1999/12/01 or later.
+%%
+%% The list of all files belonging to the 'Elsarticle Bundle' is
+%% given in the file `manifest.txt'.
+%%
+
+%% Template article for Elsevier's document class `elsarticle'
+%% with numbered style bibliographic references
+%% SP 2008/03/01
+%%
+%%
+%%
+%% $Id: elsarticle-template-num.tex 4 2009-10-24 08:22:58Z rishi $
+%%
+%%
+\documentclass[preprint,12pt,review]{elsarticle}
+%\documentclass[final,5p,times,twocolumn]{elsarticle}
+%\documentclass[preprint,5p,times,onecolumn]{elsarticle}
+%% Use the option review to obtain double line spacing
+%\documentclass[preprint,review,12pt]{elsarticle}
+
+%% Use the options 1p,twocolumn; 3p; 3p,twocolumn; 5p; or 5p,twocolumn
+%% for a journal layout:
+%% \documentclass[final,1p,times]{elsarticle}
+%% \documentclass[final,1p,times,twocolumn]{elsarticle}
+%% \documentclass[final,3p,times]{elsarticle}
+%% \documentclass[final,3p,times,twocolumn]{elsarticle}
+%% \documentclass[final,5p,times]{elsarticle}
+%% \documentclass[final,5p,times,twocolumn]{elsarticle}
+
+%% if you use PostScript figures in your article
+%% use the graphics package for simple commands
+%% \usepackage{graphics}
+%% or use the graphicx package for more complicated commands
+%% \usepackage{graphicx}
+%% or use the epsfig package if you prefer to use the old commands
+%% \usepackage{epsfig}
+
+%% The amssymb package provides various useful mathematical symbols
+\usepackage{rotating}
+\usepackage{graphicx}
+%\usepackage{amsmath,amsfonts,amssymb}
+%\usepackage{bm}
+%\usepackage{algorithm}
+%\usepackage{algorithmic}
+\usepackage{url}
+\usepackage[breaklinks=true,letterpaper=true,colorlinks,bookmarks=false]{hyperref}
+\usepackage[table]{xcolor}
+
+% For review: line numbers
+\usepackage[pagewise]{lineno}
+
+\biboptions{sort}
+
+\definecolor{deep_blue}{rgb}{0,.2,.5}
+\definecolor{dark_blue}{rgb}{0,.15,.5}
+
+\hypersetup{pdftex,  % needed for pdflatex
+  breaklinks=true,  % so long urls are correctly broken across lines
+  colorlinks=true,
+  linkcolor=dark_blue,
+  citecolor=deep_blue,
+}
+
+%% Float parameters, for more full pages.
+\renewcommand{\topfraction}{0.9}        % max fraction of floats at top
+\renewcommand{\bottomfraction}{0.8}     % max fraction of floats at bottom
+\renewcommand{\textfraction}{0.07}      % allow minimal text w. figs
+%%   Parameters for FLOAT pages (not text pages):
+\renewcommand{\floatpagefraction}{0.6}  % require fuller float pages
+%%    % N.B.: floatpagefraction MUST be less than topfraction !!
+
+
+%\def\B#1{\mathbf{#1}}
+%%\def\B#1{\bm{#1}}
+%\def\trans{^\mathsf{T}}
+%% A compact fraction
+%\def\slantfrac#1#2{\kern.1em^{#1}\kern-.1em/\kern-.1em_{#2}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% For the final version: to output PDF figures from latex
+\newif\iffinal
+\finaltrue
+%\finalfalse
+\iffinal\else
+\usepackage[tightpage,active]{preview}
+\fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Modification tracking
+\usepackage{xcolor}
+\usepackage[normalem]{ulem}
+\colorlet{markercolor}{purple!50!black}
+\newcommand{\ADDED}[1]{\textcolor{markercolor}{\uline{#1}}}
+\newcommand{\DELETED}[1]{\textcolor{red}{\sout{#1}}}
+
+% For highlighting changes for reviewer
+\usepackage{MnSymbol}
+\def\marker{%
+    \vadjust{{%
+	\llap{\smash{%
+	    \color{purple}%
+	    \scalebox{1.8}{$\filledmedtriangleright$}}\;}%
+    }}\hspace*{-.1ex}%
+}%
+\def\hl#1{\textcolor{markercolor}{%
+   \protect\marker%
+  #1%
+}}%
+
+
+% Show the old version
+%\renewcommand{\ADDED}[1]{}
+%\renewcommand{\DELETED}[1]{#1}
+
+% Show the new version
+%\renewcommand{\ADDED}[1]{#1}
+%\renewcommand{\DELETED}[1]{}
+
+
+%% The amsthm package provides extended theorem environments
+%% \usepackage{amsthm}
+
+%% The lineno packages adds line numbers. Start line numbering with
+%% \begin{linenumbers}, end it with \end{linenumbers}. Or switch it on
+%% for the whole article with \linenumbers after \end{frontmatter}.
+%% \usepackage{lineno}
+
+%% natbib.sty is loaded by default. However, natbib options can be
+%% provided with \biboptions{...} command. Following options are
+%% valid:
+
+%%   round  -  round parentheses are used (default)
+%%   square -  square brackets are used   [option]
+%%   curly  -  curly braces are used      {option}
+%%   angle  -  angle brackets are used    <option>
+%%   semicolon  -  multiple citations separated by semi-colon
+%%   colon  - same as semicolon, an earlier confusion
+%%   comma  -  separated by comma
+%%   numbers-  selects numerical citations
+%%   super  -  numerical citations as superscripts
+%%   sort   -  sorts multiple citations according to order in ref. list
+%%   sort&compress   -  like sort, but also compresses numerical citations
+%%   compress - compresses without sorting
+%%
+%% \biboptions{comma,round}
+
+% \biboptions{}
+
+
+\journal{NeuroImage}
+
+\begin{document}
+
+\begin{frontmatter}
+
+\title{A Configurable Software Pipeline for Automated Preprocessing and Analysis of NeuroImaging Data}
+
+\author[CMI,NKI]{R. Cameron Craddock}
+\ead{cameron.craddock@childmind.org}
+\author[CMI]{Daniel J. Lurie}
+\author[CMI]{Steven Giavasis}
+\author[NKI]{Zarrar Shehzad}
+\author[CMI]{Daniel Clark}
+\author[NKI,IPN]{Chao-Gan Yan}
+\author[DUKE]{Joshua T. Vogelstein}
+\author[JHU]{Randal Burns}
+\author[NKI]{Stanley Colcombe}
+\author[DON]{Maarten Mennes}
+\author[IPN]{Clare Kelly}
+\author[IPN]{Adriana Di Martino}
+\author[IPN,NKI]{F. Xavier Castellanos}
+\author[CMI,NKI]{Michael P. Milham}
+\ead{michael.milham@childmind.org}
+%\corref{cor1}
+
+\address[CMI]{Center for the Developing Brain, Child Mind Institute, New York, NY}
+\address[NKI]{ Nathan S. Kline Institute for Pyschiatric Research, Orangeburg, NY}
+\address[IPN]{Phyllis Green and Randolph Cowen Institute for Pediatric Neuroscience, New York University Child Study Center New York, NY}
+\address[DUKE]{Departments of Mathematics and Statistical Science, Duke University, Durham, NC}
+\address[JHU]{Department of Computer Science, John Hopkins University, Baltimore, MD}
+\address[DON]{Donders Institute for Brain, Cognition and Behavior, Radboud University, Nijmegen Medical Centre, Nijmegen, The Netherlands}
+
+%\cortext[cor1]{Corresponding author}
+
+
+\begin{abstract}
+Text of abstract. Text of abstract. Text of abstract. Text of abstract. Text of abstract. 
+\end{abstract}
+
+\begin{keyword}
+%% keywords here, in the form: keyword \sep keyword
+example \sep \LaTeX \sep template
+%% MSC codes here, in the form: \MSC code \sep code
+%% or \MSC[2008] code \sep code (2000 is the default)
+\end{keyword}
+
+\end{frontmatter}
+
+%%
+%% Start line numbering here if you want
+%%
+% \linenumbers
+
+%% main text
+\input{introduction}
+\input{features}
+\input{pipeline_methods}
+
+
+%%  with bibTeX database
+
+% \bibliographystyle{elsarticle-num}
+% \bibliographystyle{elsarticle-harv}
+% \bibliographystyle{elsarticle-num-names}
+% \bibliographystyle{model1a-num-names}
+% \bibliographystyle{model1b-num-names}
+% \bibliographystyle{model1c-num-names}
+% \bibliographystyle{model1-num-names}
+% \bibliographystyle{model2-names}
+% \bibliographystyle{model3a-num-names}
+% \bibliographystyle{model3-num-names}
+% \bibliographystyle{model4-names}
+% \bibliographystyle{model5-names}
+% \bibliographystyle{model6-num-names}
+{
+    %\clearpage
+    \section*{References}
+    \small
+    %\bibliographystyle{elsarticle-num-names}
+    \bibliographystyle{model1b-num-names}
+    \bibliography{CPAC_paper} 
+}
+
+\end{document}
+
+%%
+%% End of file `elsarticle-template-num.tex'.
